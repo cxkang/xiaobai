@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiaobai.loT.dao.TDeviceDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.xiaobai.loT.entity.TDeviceEntity" id="tDeviceMap">
+        <result property="id" column="id"/>
+        <result property="dataUuid" column="data_uuid"/>
+        <result property="category" column="category"/>
+        <result property="deviceId" column="device_id"/>
+        <result property="registerState" column="register_state"/>
+        <result property="registerTime" column="register_time"/>
+        <result property="province" column="province"/>
+        <result property="city" column="city"/>
+        <result property="area" column="area"/>
+        <result property="address" column="address"/>
+        <result property="hotelName" column="hotel_name"/>
+        <result property="roomNo" column="room_no"/>
+        <result property="lastCheckTime" column="last_check_time"/>
+        <result property="lastCheckIp" column="last_check_ip"/>
+        <result property="remark" column="remark"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+    <update id="updateStatus">
+         update t_device
+       set
+           register_state=1,
+           register_time=now(),
+           update_time=now()
+        where device_id=#{deviceId}
+    </update>
+
+
+</mapper>

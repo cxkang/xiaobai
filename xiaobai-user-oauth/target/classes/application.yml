@@ -1,0 +1,47 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: user-auth
+  #  redis:
+  #    host: 192.168.211.132
+  #    port: 6379
+  #    password:
+  #    jedis:
+  #      pool:
+  #        max-active: 8
+  #        max-idle: 8
+  #        min-idle: 0
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://114.55.147.218:3306/xiaobaidb?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: Abcde@123456
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#  client:
+#    service-url:
+#      defaultZone: http://127.0.0.1:7001/eureka
+auth:
+  ttl: 3600  #token存储到redis的过期时间
+  clientId: xiaobai
+  clientSecret: xiaobai
+  cookieDomain: xiaobai
+  cookieMaxAge: -1
+encrypt:
+  key-store:
+    location: classpath:/xiaobai.jks
+    secret: xiaobai
+    alias: xiaobai
+    password: xiaobai
